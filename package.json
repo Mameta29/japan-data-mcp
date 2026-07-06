@@ -1,0 +1,62 @@
+{
+  "name": "@mameta/japan-data-mcp",
+  "version": "1.0.1",
+  "mcpName": "io.github.Mameta29/japan-data-mcp",
+  "description": "MCP server exposing the agentic-jp.com suite of x402-paid Japan data APIs (address, furigana, transit, Diet, holiday, weather, corporate-number) as tools for AI agents. Payments are settled automatically over x402 using the operator's own wallet.",
+  "type": "module",
+  "bin": {
+    "japan-data-mcp": "dist/index.js"
+  },
+  "files": [
+    "dist/**/*.js",
+    "LICENSE",
+    "README.md"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mameta29/japan-data-mcp.git"
+  },
+  "homepage": "https://agentic-jp.com",
+  "bugs": {
+    "url": "https://github.com/Mameta29/japan-data-mcp/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "tsx src/index.ts",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "prepublishOnly": "npm run build && chmod +x dist/index.js"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "x402",
+    "japan",
+    "japanese-data",
+    "ai-agents"
+  ],
+  "author": "MAMETA",
+  "license": "Apache-2.0",
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.29.0",
+    "@x402/axios": "^2.12.0",
+    "@x402/core": "^2.12.0",
+    "@x402/evm": "^2.12.0",
+    "axios": "^1.13.2",
+    "viem": "^2.21.0",
+    "zod": "^3.23.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.0",
+    "tsx": "^4.16.0",
+    "typescript": "^5.5.0",
+    "vitest": "^2.1.0"
+  }
+}

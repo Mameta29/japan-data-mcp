@@ -1,0 +1,32 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.Mameta29/japan-data-mcp",
+  "title": "Japan Data MCP",
+  "description": "30 tools for Japanese data: address, furigana, transit, Diet, holidays, weather, corporate registry",
+  "repository": {
+    "url": "https://github.com/Mameta29/japan-data-mcp",
+    "source": "github"
+  },
+  "websiteUrl": "https://agentic-jp.com",
+  "version": "1.0.1",
+  "packages": [
+    {
+      "registryType": "npm",
+      "registryBaseUrl": "https://registry.npmjs.org",
+      "identifier": "@mameta/japan-data-mcp",
+      "version": "1.0.1",
+      "transport": {
+        "type": "stdio"
+      },
+      "environmentVariables": [
+        {
+          "name": "EVM_PRIVATE_KEY",
+          "description": "Private key of a USDC-funded wallet used to pay per-call x402 fees. Optional: without it the server starts and lists all tools, but paid tool calls return a 'payments disabled' error.",
+          "isRequired": false,
+          "isSecret": true,
+          "format": "string"
+        }
+      ]
+    }
+  ]
+}
