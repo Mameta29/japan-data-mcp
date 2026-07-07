@@ -160,7 +160,7 @@ export const TOOLS: ToolDef[] = [
     name: "transit_line_disruptions",
     api: "transit",
     description: "Current service disruptions on a specific Japanese train line.",
-    input: { line: z.string().describe("Line id from transit_lines (e.g. jr-yamanote).") },
+    input: { line: z.string().describe("Line id from transit_lines (e.g. jr-east-yamanote).") },
     paid: true,
     buildRequest: (a) => ({ method: "GET", path: `/line/${seg(a.line)}/disruptions` }),
   },
@@ -336,15 +336,6 @@ export const TOOLS: ToolDef[] = [
       },
     }),
   },
-  {
-    name: "diet_bill_votes",
-    api: "diet",
-    description:
-      "Aggregated roll-call results for a Japanese Diet bill — for/against/abstain/absent totals, broken down by party.",
-    input: { bill_id: z.string().describe("Bill id (e.g. 217-shu-44).") },
-    paid: true,
-    buildRequest: (a) => ({ method: "GET", path: `/votes/${seg(a.bill_id)}` }),
-  },
 
   // ---- holiday-api --------------------------------------------------------
   {
@@ -462,6 +453,29 @@ export const TOOLS: ToolDef[] = [
         ...(a.city ? { city: a.city } : {}),
         ...(a.corp_kind ? { corp_kind: a.corp_kind } : {}),
         ...(a.limit ? { limit: a.limit } : {}),
+      },
+    }),
+  },
+  {
+    name: "houjin_kyb_report",
+    api: "houjin",
+    description:
+      "One-call KYB report on a Japanese corporation: official registry record, lifecycle status (active/closed), kana + romaji name readings, machine-actionable risk flags, an English summary, and the dataset vintage. Accepts a 13-digit corporate number or a company name. Premium composite ($0.25) — replaces 3-4 separate lookups.",
+    input: {
+      corporate_number: z.string().optional().describe("13-digit corporate number (法人番号). Either this or name is required."),
+      name: z.string().optional().describe("Company trade name when the number is unknown."),
+      prefecture: z.string().optional().describe("Optional prefecture filter for name resolution."),
+      city: z.string().optional().describe("Optional city/ward filter for name resolution."),
+    },
+    paid: true,
+    buildRequest: (a) => ({
+      method: "POST",
+      path: "/report",
+      body: {
+        ...(a.corporate_number ? { corporate_number: a.corporate_number } : {}),
+        ...(a.name ? { name: a.name } : {}),
+        ...(a.prefecture ? { prefecture: a.prefecture } : {}),
+        ...(a.city ? { city: a.city } : {}),
       },
     }),
   },

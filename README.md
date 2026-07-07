@@ -17,7 +17,7 @@ account, no subscription, no API key.
 | **address** | `address_normalize`, `address_geocode`, `address_reverse_geocode`, `address_postal_code`, `address_parse` | Japanese address normalization, geocoding, postal-code lookup, free-form parsing |
 | **furigana** | `furigana_convert`, `furigana_name_readings`, `furigana_classify` | Reading conversion, name readings, text classification |
 | **transit** | `transit_station_status`, `transit_line_disruptions`, `transit_route_plan`, `transit_alternative_routes`, `transit_lines`, `transit_stations_search` | Real-time rail delays + delay-aware route planning (ODPT) |
-| **diet** | `diet_member`, `diet_members_search`, `diet_minutes_search`, `diet_minutes_summarize`, `diet_topic_track`, `diet_bill_votes` | National Diet members, proceedings, AI summaries, votes |
+| **diet** | `diet_member`, `diet_members_search`, `diet_minutes_search`, `diet_minutes_summarize`, `diet_topic_track`, | National Diet members, proceedings, AI summaries, votes |
 | **holiday** | `holiday_is_holiday`, `holiday_list`, `holiday_add_business_days`, `holiday_business_days_between` | Public holidays + business-day math |
 | **weather** | `weather_forecast`, `weather_warnings`, `weather_areas` | JMA forecasts and warnings |
 | **houjin** | `houjin_corporation`, `houjin_search`, `houjin_verify` | Corporate-number (法人番号) registry — 5.78M corporations |
