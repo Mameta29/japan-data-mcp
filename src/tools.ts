@@ -281,61 +281,8 @@ export const TOOLS: ToolDef[] = [
       },
     }),
   },
-  {
-    name: "diet_minutes_summarize",
-    api: "diet",
-    description:
-      "AI-generated (Claude) summary of a Japanese Diet committee meeting transcript — key topics and quotes, in Japanese and/or English.",
-    input: {
-      meeting_id: z.string().describe("Meeting id from diet_minutes_search."),
-      language: z.enum(["ja", "en", "both"]).optional().describe("Summary language."),
-      summary_length: z
-        .enum(["short", "medium", "detailed"])
-        .optional()
-        .describe("Summary length."),
-    },
-    paid: true,
-    buildRequest: (a) => ({
-      method: "POST",
-      path: "/minutes/summarize",
-      body: {
-        meeting_id: a.meeting_id,
-        ...(a.language ? { language: a.language } : {}),
-        ...(a.summary_length ? { summary_length: a.summary_length } : {}),
-      },
-    }),
-  },
-  {
-    name: "diet_topic_track",
-    api: "diet",
-    description:
-      "Track how a policy topic has been discussed across recent Japanese Diet meetings: a dated timeline, key actors, and an AI-written policy-direction narrative.",
-    input: {
-      topic: z.string().describe("Policy topic."),
-      from_date: z.string().describe("Start date, YYYY-MM-DD. Required."),
-      to_date: z.string().describe("End date, YYYY-MM-DD. Required."),
-      max_meetings: z
-        .number()
-        .optional()
-        .describe("Max meetings to analyze, 1-20. Default 10."),
-      language: z
-        .enum(["ja", "en", "both"])
-        .optional()
-        .describe("Narrative language. Default ja."),
-    },
-    paid: true,
-    buildRequest: (a) => ({
-      method: "POST",
-      path: "/topic-track",
-      body: {
-        topic: a.topic,
-        from_date: a.from_date,
-        to_date: a.to_date,
-        ...(a.max_meetings ? { max_meetings: a.max_meetings } : {}),
-        ...(a.language ? { language: a.language } : {}),
-      },
-    }),
-  },
+  // (diet_minutes_summarize / diet_topic_track were removed 2026-07-08 along
+  // with the upstream LLM endpoints — the Anthropic cost exceeded revenue.)
 
   // ---- holiday-api --------------------------------------------------------
   {

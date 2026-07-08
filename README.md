@@ -10,17 +10,17 @@ access to the [agentic-jp.com](https://agentic-jp.com) suite of Japanese data
 APIs. Every call is settled per-use over the **x402** payment protocol — no
 account, no subscription, no API key.
 
-## What it covers — 30 tools across 7 APIs
+## What it covers — 28 tools across 7 APIs
 
 | API | Tools | What it does |
 |---|---|---|
 | **address** | `address_normalize`, `address_geocode`, `address_reverse_geocode`, `address_postal_code`, `address_parse` | Japanese address normalization, geocoding, postal-code lookup, free-form parsing |
 | **furigana** | `furigana_convert`, `furigana_name_readings`, `furigana_classify` | Reading conversion, name readings, text classification |
 | **transit** | `transit_station_status`, `transit_line_disruptions`, `transit_route_plan`, `transit_alternative_routes`, `transit_lines`, `transit_stations_search` | Real-time rail delays + delay-aware route planning (ODPT) |
-| **diet** | `diet_member`, `diet_members_search`, `diet_minutes_search`, `diet_minutes_summarize`, `diet_topic_track`, | National Diet members, proceedings, AI summaries, votes |
+| **diet** | `diet_member`, `diet_members_search`, `diet_minutes_search` | National Diet members and full-text proceedings search |
 | **holiday** | `holiday_is_holiday`, `holiday_list`, `holiday_add_business_days`, `holiday_business_days_between` | Public holidays + business-day math |
 | **weather** | `weather_forecast`, `weather_warnings`, `weather_areas` | JMA forecasts and warnings |
-| **houjin** | `houjin_corporation`, `houjin_search`, `houjin_verify` | Corporate-number (法人番号) registry — 5.78M corporations |
+| **houjin** | `houjin_corporation`, `houjin_search`, `houjin_verify`, `houjin_kyb_report` | Corporate-number (法人番号) registry — 5.78M corporations, one-call KYB report |
 
 ## How payment works
 
@@ -62,7 +62,7 @@ Add to `claude_desktop_config.json`:
 }
 ```
 
-Without `EVM_PRIVATE_KEY` the server still starts and lists all 30 tools;
+Without `EVM_PRIVATE_KEY` the server still starts and lists all 28 tools;
 the paid tools then return a clear "payments disabled" error instead of
 running. Add a USDC-funded wallet key to enable them.
 
@@ -88,7 +88,7 @@ Once connected, just ask the agent in natural language:
 - "Is tomorrow a public holiday in Japan? If so, when is the next business day?" — `holiday_is_holiday` + `holiday_add_business_days`
 - "山手線いま遅れてる?渋谷から東京駅までの代替ルートは?" — `transit_line_disruptions` + `transit_alternative_routes`
 - "Look up the corporation with corporate number 7010401056220" — `houjin_corporation`
-- "国会で「デジタル庁」について最近議論された内容を要約して" — `diet_minutes_search` + `diet_minutes_summarize`
+- "国会で「デジタル庁」がいつどの委員会で議論されたか調べて" — `diet_minutes_search`
 
 ## Configuration
 

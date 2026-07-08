@@ -1,6 +1,6 @@
 {
   "name": "@mameta/japan-data-mcp",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "mcpName": "io.github.Mameta29/japan-data-mcp",
   "description": "MCP server exposing the agentic-jp.com suite of x402-paid Japan data APIs (address, furigana, transit, Diet, holiday, weather, corporate-number) as tools for AI agents. Payments are settled automatically over x402 using the operator's own wallet.",
   "type": "module",

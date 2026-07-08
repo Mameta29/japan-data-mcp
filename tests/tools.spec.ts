@@ -74,18 +74,9 @@ describe("tool catalog", () => {
       expect(spec.body).not.toHaveProperty("days");
     });
 
-    it("diet_topic_track always sends the required from_date/to_date", () => {
-      const tool = TOOLS.find((t) => t.name === "diet_topic_track")!;
-      const spec = tool.buildRequest({
-        topic: "ステーブルコイン",
-        from_date: "2025-01-01",
-        to_date: "2026-05-19",
-      });
-      expect(spec.body).toMatchObject({
-        topic: "ステーブルコイン",
-        from_date: "2025-01-01",
-        to_date: "2026-05-19",
-      });
+    it("removed LLM-backed diet tools stay removed", () => {
+      expect(TOOLS.find((t) => t.name === "diet_minutes_summarize")).toBeUndefined();
+      expect(TOOLS.find((t) => t.name === "diet_topic_track")).toBeUndefined();
     });
   });
 });
