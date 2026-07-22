@@ -2,6 +2,7 @@
 
 [![npm version](https://img.shields.io/npm/v/@mameta/japan-data-mcp)](https://www.npmjs.com/package/@mameta/japan-data-mcp)
 [![license](https://img.shields.io/npm/l/@mameta/japan-data-mcp)](https://www.apache.org/licenses/LICENSE-2.0)
+[![Japan Furigana API on x402-list](https://x402-list.com/badge/japan-furigana-api.svg)](https://x402-list.com/services/japan-furigana-api?utm_source=badge&utm_medium=referral&utm_campaign=embed)
 
 > npm: [`@mameta/japan-data-mcp`](https://www.npmjs.com/package/@mameta/japan-data-mcp) · MCP Registry: `io.github.Mameta29/japan-data-mcp` · transport: **stdio**
 
